@@ -8,6 +8,7 @@ import {UserListComponent} from './users/user-list.component';
 export const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'users', component: UserListComponent}
+  {path: 'todos', component: TodoListComponent}
 ];
 
 export const Routing: ModuleWithProviders = RouterModule.forRoot(routes);
