@@ -5,7 +5,6 @@ import {Observable} from 'rxjs/Observable';
 
 import {User} from './user';
 import {environment} from '../../environments/environment';
-
 @Injectable()
 export class UserListService {
   readonly userUrl: string = environment.API_URL + 'users';
