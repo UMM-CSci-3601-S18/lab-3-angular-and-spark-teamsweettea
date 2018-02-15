@@ -3,9 +3,8 @@ import {HttpClient} from '@angular/common/http';
 
 import {Observable} from 'rxjs/Observable';
 
-import {User} from './todo';
+import {Todo} from './todo';
 import {environment} from '../../environments/environment';
-
 @Injectable()
 export class TodoListService {
   readonly todoUrl: string = environment.API_URL + 'todos';
