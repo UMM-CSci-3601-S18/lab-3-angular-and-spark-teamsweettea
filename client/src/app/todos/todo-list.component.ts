@@ -59,22 +59,20 @@ export class TodoListComponent implements OnInit {
       });
     }
 
-    // Filter by status
+    if (searchStatus != null) {
+      searchStatus = searchStatus.toLocaleLowerCase();
 
-    /*if (searchStatus != "") {
-      if(searchStatus == ("false")){
-        this.todoStatus = false;
+      if(searchStatus.toLowerCase() == "complete"){
+        searchStatus = "true";
       }
       else {
-        this.todoStatus = true;
+        searchStatus = "false";
       }
 
-      this.filteredTodos = this.filteredTodos.filter((todo: Todo) => {
-        return (todo.status === Boolean(this.todoStatus));
+      this.filteredTodos = this.filteredTodos.filter(todo => {
+        return !searchStatus || String(todo.status).toLowerCase().indexOf(searchStatus) !== -1;
       });
-    }*/
-
-
+    }
 
     return this.filteredTodos;
   }
