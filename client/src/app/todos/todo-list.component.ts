@@ -19,6 +19,7 @@ export class TodoListComponent implements OnInit {
   public todoStatus: boolean;
 
 
+
   // Inject the TodoListService into this component.
   // That's what happens in the following constructor.
   //
@@ -29,11 +30,11 @@ export class TodoListComponent implements OnInit {
 
   }
 
-  public filterTodos(searchOwner: string, searchStatus: boolean): Todo[] {
+  public filterTodos(searchOwner: string, searchStatus: string, searchBody: string, searchCategory: string): Todo[] {
 
     this.filteredTodos = this.todos;
 
-    // Filter by name
+    // Filter by owner
     if (searchOwner != null) {
       searchOwner = searchOwner.toLocaleLowerCase();
 
@@ -42,12 +43,38 @@ export class TodoListComponent implements OnInit {
       });
     }
 
-    // Filter by age
-    if (searchStatus != null) {
-      this.filteredTodos = this.filteredTodos.filter((todo: Todo) => {
-        return !searchStatus || (todo.status === Boolean(searchStatus));
+    if (searchBody != null) {
+      searchBody = searchBody.toLocaleLowerCase();
+
+      this.filteredTodos = this.filteredTodos.filter(todo => {
+        return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
     }
+
+    if (searchCategory != null) {
+      searchCategory = searchCategory.toLocaleLowerCase();
+
+      this.filteredTodos = this.filteredTodos.filter(todo => {
+        return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
+      });
+    }
+
+    // Filter by status
+
+    /*if (searchStatus != "") {
+      if(searchStatus == ("false")){
+        this.todoStatus = false;
+      }
+      else {
+        this.todoStatus = true;
+      }
+
+      this.filteredTodos = this.filteredTodos.filter((todo: Todo) => {
+        return (todo.status === Boolean(this.todoStatus));
+      });
+    }*/
+
+
 
     return this.filteredTodos;
   }
@@ -67,7 +94,7 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        //this.filteredTodos(this.todoName, this.todoAge);
+        //this.filteredTodos(this.todoOwner, this.todoStatus);
       },
       err => {
         console.log(err);
