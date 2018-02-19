@@ -9,25 +9,25 @@ describe('Todo list service: ', () => {
   // A small collection of test todos
   const testTodos: Todo[] = [
     {
-      id: 'Travis_id',
-      owner: 'Travis',
-      status: true,
-      body: 'I wrote something.',
-      category: 'software design'
+      "_id": "Travis_id",
+      "owner": "Travis",
+      "status": true,
+      "body": "I wrote something.",
+      "category": "software design"
     },
     {
-      id: 'Kai_id',
-      owner: 'Kai',
-      status: false,
-      body: 'Am I alive?',
-      category: 'existential crises'
+      "_id": "Kai_id",
+      "owner": "Kai",
+      "status": false,
+      "body": "Am I alive?",
+      "category": "existential crises"
     },
     {
-      id: 'KKNic_id',
-      owner: 'KKNic',
-      status: true,
-      body: 'They are great.',
-      category: 'homework'
+      "_id": "KKNic_id",
+      "owner": "KKNic",
+      "status": true,
+      "body": "They are great.",
+      "category": "homework"
     }
   ];
   let todoListService: TodoListService;
@@ -77,7 +77,7 @@ describe('Todo list service: ', () => {
 
   it('getTodoById() calls api/todos/id', () => {
     const targetTodo: Todo = testTodos[1];
-    const targetId: string = targetTodo.id;
+    const targetId: string = targetTodo._id;
     todoListService.getTodoById(targetId).subscribe(
       todo => expect(todo).toBe(targetTodo)
     );
