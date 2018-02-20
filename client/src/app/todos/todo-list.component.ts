@@ -99,7 +99,7 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoStatus ,this.todoBody,this.todoId,this.todoCategory);
+        this.filterTodos(this.todoOwner, this.todoStatus ,this.todoBody, this.todoId, this.todoCategory);
       },
       err => {
         console.log(err);

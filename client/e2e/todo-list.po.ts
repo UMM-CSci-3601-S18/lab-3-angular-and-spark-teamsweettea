@@ -48,6 +48,7 @@ export class TodoPage {
     let input = element(by.id('todoStatus'));
     input.click();
     input.sendKeys(status);
+    input.click();
   }
 
   typeABody(body: string) {

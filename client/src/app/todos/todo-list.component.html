@@ -11,21 +11,17 @@
           <input matInput id="todoId" #input placeholder="Filter by ID" (input)="todoId = $event.target.value">
         </mat-form-field>
 
-        <!--<form>
+        <form>
 
-                    &lt;!&ndash;# The first Angular feature&ndash;&gt;
-                    <label> Please select status:</label>
-                    <select name="dropdown" id="todoStatus" #input placeholder="Filter by status" (input)="todoStatus = $event.target.value">
-                      <option value=""></option>
-                      <option value="complete">complete</option>
-                      <option value="incomplete">incomplete</option>
-                    </select>
+          <!--# The Angular feature-->
+          <label> Please select status:</label>
+          <select name="dropdown" id="todoStatus" #input placeholder="Filter by status" (input)="todoStatus = $event.target.value">
+            <option value=""></option>
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
 
-                  </form>-->
-        <mat-form-field>
-          <input matInput id="todoStatus" #input type="string" placeholder="Filter by status"
-                 (input)="todoStatus = $event.target.value">
-        </mat-form-field>
+        </form>
         <mat-form-field>
           <input matInput id="todoBody" #input placeholder="Filter by body" (input)="todoBody = $event.target.value">
         </mat-form-field>

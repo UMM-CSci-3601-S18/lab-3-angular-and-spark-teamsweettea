@@ -22,7 +22,6 @@ describe('Todo list', () => {
   };
 
   beforeEach(() => {
-    // stub UserService for test purposes
     todoListServiceStub = {
       getTodos: () => Observable.of([
         {
