@@ -26,25 +26,25 @@ describe('Todo list', () => {
     todoListServiceStub = {
       getTodos: () => Observable.of([
         {
-          "_id": "Travis_id",
-          "owner": "Travis",
-          "status": true,
-          "body": "I wrote something.",
-          "category": "software design"
+          _id: 'Travis_id',
+          owner: "Travis",
+          status: true,
+          body: "Travis",
+          category: "software design",
         },
         {
-          "_id": "Kai_id",
-          "owner": "Kai",
-          "status": false,
-          "body": "Am I alive?",
-          "category": "existential crises"
+          _id: "Kai_id",
+          owner: "Kai",
+          status: false,
+          body: "I wrote something.",
+          category: "existential crises",
         },
         {
-          "_id": "KKNic_id",
-          "owner": "KKNic",
-          "status": true,
-          "body": "They are great.",
-          "category": "homework"
+          _id: "KKNic_id",
+          owner: "KKNic",
+          status: true,
+          body: "They are great.",
+          category: "software design",
         }
       ])
     };
@@ -84,7 +84,7 @@ describe('Todo list', () => {
     expect(todoList.todos.some((todo: Todo) => todo.owner === 'KKNic')).toBe(true);
   });
 
-  it('doesn\'t contain a user named \'He who shall not be named\'', () => {
+  it('doesn\'t contain a todo named \'He who shall not be named\'', () => {
     expect(todoList.todos.some((todo: Todo) => todo.owner === 'He who shall not be named')).toBe(false);
   });
 
@@ -106,10 +106,10 @@ describe('Todo list', () => {
 
   it('todo list filters by body', () => {
     expect(todoList.filteredTodos.length).toBe(3);
-    todoList.todoBody = "I wrote something.";
+    todoList.todoBody = "Travis";
     const a: Observable<Todo[]> = todoList.refreshTodos();
     a.do(x => Observable.of(x))
-      .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
   });
 
   it('todo list filters by category', () => {
@@ -117,7 +117,7 @@ describe('Todo list', () => {
     todoList.todoCategory = "software design";
     const a: Observable<Todo[]> = todoList.refreshTodos();
     a.do(x => Observable.of(x))
-      .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
   });
 
 
@@ -255,7 +255,7 @@ describe('Misbehaving User List', () => {
     });
   }));
 
-  it('generates an error if we don\'t set up a UserListService', () => {
+  it('generates an error if we don\'t set up a TodoListService', () => {
     // Since the observer throws an error, we don't expect users to be defined.
     expect(todoList.todos).toBeUndefined();
   });

@@ -9,7 +9,7 @@ import {Todo} from './todo';
 })
 export class TodoComponent implements OnInit {
   public todo: Todo = null;
-  private id: string;
+  private id: string;false
 
   constructor(private todoListService: TodoListService) {
     // this.users = this.todoListService.getTodos();

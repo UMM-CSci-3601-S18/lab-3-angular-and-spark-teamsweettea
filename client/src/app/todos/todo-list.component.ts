@@ -16,8 +16,10 @@ export class TodoListComponent implements OnInit {
   public filteredTodos: Todo[];
 
   public todoOwner: string;
-  public todoStatus: boolean;
-  public todoId: boolean;
+  public todoStatus: string;
+  public todoId: string;
+  public todoCategory: string;
+  public todoBody: string;
 
 
 
@@ -44,6 +46,7 @@ export class TodoListComponent implements OnInit {
       });
     }
 
+    // Filter by id
     if (searchId != null) {
 
       this.filteredTodos = this.filteredTodos.filter(todo => {
@@ -51,6 +54,7 @@ export class TodoListComponent implements OnInit {
       });
     }
 
+    //Filter by body
     if (searchBody != null) {
       searchBody = searchBody.toLocaleLowerCase();
 
@@ -59,6 +63,7 @@ export class TodoListComponent implements OnInit {
       });
     }
 
+    //Filter by category
     if (searchCategory != null) {
       searchCategory = searchCategory.toLocaleLowerCase();
 
@@ -67,15 +72,9 @@ export class TodoListComponent implements OnInit {
       });
     }
 
+    //Filter by status
     if (searchStatus != null) {
       searchStatus = searchStatus.toLocaleLowerCase();
-
-      if(searchStatus.toLowerCase() == "complete"){
-        searchStatus = "true";
-      }
-      else {
-        searchStatus = "false";
-      }
 
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchStatus || String(todo.status).toLowerCase().indexOf(searchStatus) !== -1;
@@ -85,22 +84,22 @@ export class TodoListComponent implements OnInit {
     return this.filteredTodos;
   }
 
+
   /**
-   * Starts an asynchronous operation to update the todos list
+   * Starts an asynchronous operation to update the users list
    *
    */
   refreshTodos(): Observable<Todo[]> {
-    // Get Todos returns an Observable, basically a "promise" that
+    // Get Users returns an Observable, basically a "promise" that
     // we will get the data from the server.
     //
     // Subscribe waits until the data is fully downloaded, then
     // performs an action on it (the first lambda)
-
     const todos: Observable<Todo[]> = this.todoListService.getTodos();
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        //this.filteredTodos(this.todoOwner, this.todoStatus);
+        this.filterTodos(this.todoOwner, this.todoStatus ,this.todoBody,this.todoId,this.todoCategory);
       },
       err => {
         console.log(err);
