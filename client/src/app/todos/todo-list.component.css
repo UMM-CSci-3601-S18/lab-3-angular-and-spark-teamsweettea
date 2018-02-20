@@ -39,7 +39,7 @@ mat-panel-title.mat-expansion-panel-header-title{
 
 #Panel-Header{
   font-size: 180%;
-  font-family: cursive;
+  font-family: Script;
 }
 
 #Row{
@@ -52,7 +52,7 @@ mat-panel-title.mat-expansion-panel-header-title{
 
 
 [layout-gt-sm="row"] {
-  background-image: url("https://wallpaperscraft.com/image/paper_crumpled_light_shadow_35117_1920x1080.jpg");
+  background-image: url("https://fresible.com/wp-content/uploads/2016/12/background.jpg");
 }
 
 

@@ -30,12 +30,6 @@ describe('Todo list', () => {
   });
 
   // Owner Filtering
-  it('should type a letter and get a specific id', () => {
-    page.navigateTo();
-    page.typeAnOwner("w");
-    expect(page.getUniqueTodo("588959851d787486cef967d2")).toEqual("Workman");
-  });
-
   it('should type an owner and get a specific id', () => {
     page.navigateTo();
     page.typeAnOwner("fry");
@@ -52,13 +46,13 @@ describe('Todo list', () => {
   // Filter by status
   it('should type a status and get a specific id', () => {
     page.navigateTo();
-    page.typeAStatus("complete");
+    page.typeAStatus("true");
     expect(page.getUniqueTodo("58895985e9aaeaad6292df39")).toEqual("Dawn");
   });
 
   it('should type a status and get a specific id', () => {
     page.navigateTo();
-    page.typeAStatus("incomplete");
+    page.typeAStatus("false");
     expect(page.getUniqueTodo("58895985c32328e015584db2")).toEqual("Workman");
   });
 
