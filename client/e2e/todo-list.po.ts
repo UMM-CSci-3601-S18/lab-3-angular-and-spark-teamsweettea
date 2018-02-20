@@ -67,11 +67,11 @@ export class TodoPage {
     input.sendKeys(Key.TAB);
   }
 
-  getTodoByCategory() {
+  /*getTodoByCategory() {
     let input = element(by.id('todoCategory'));
     input.click();
     input.sendKeys(Key.TAB);
-  }
+  }*/
 
   backspace(){
     browser.actions().sendKeys(Key.BACK_SPACE).perform();

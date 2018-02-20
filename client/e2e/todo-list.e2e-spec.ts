@@ -24,7 +24,7 @@ describe('Todo list', () => {
     page = new TodoPage();
   });
 
-  it('should get and highlight Todo Name attribute ', () => {
+  it('should get and highlight Todo Owner attribute ', () => {
     page.navigateTo();
     expect(page.getTodoTitle()).toEqual('Todos');
   });
@@ -52,13 +52,13 @@ describe('Todo list', () => {
   // Filter by status
   it('should type a status and get a specific id', () => {
     page.navigateTo();
-    page.typeAStatus("true");
+    page.typeAStatus("complete");
     expect(page.getUniqueTodo("58895985e9aaeaad6292df39")).toEqual("Dawn");
   });
 
   it('should type a status and get a specific id', () => {
     page.navigateTo();
-    page.typeAStatus("false");
+    page.typeAStatus("incomplete");
     expect(page.getUniqueTodo("58895985c32328e015584db2")).toEqual("Workman");
   });
 
