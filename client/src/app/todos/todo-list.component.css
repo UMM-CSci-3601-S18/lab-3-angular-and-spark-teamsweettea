@@ -14,33 +14,39 @@
 
 #todo-list-title {
   font-size: 500%;
-  font-family: cursive;
-  margin-left: 38%;
+  font-family: Script;
+  margin: auto;
+  text-align: center;
 }
 
-
-.mat-card.mat-card{
+.mat-card{
   margin: 0%;
   background: none;
 }
 
-mat-expansion-panel {
+.mat-expansion-panel {
   background: none;
-  border-radius: 3px;
+  border-radius: 5px;
+  folat: right;
+  margin-left: 10%;
 }
 
-mat-panel-title.mat-expansion-panel-header-title{
+.mat-panel-title.mat-expansion-panel-header-title{
   font-size: 150%;
 }
 
 .mat-card-content{
-  align-content: center;
+  test-align: center;
+  float: left;
 }
 
-#Panel-Header{
-  font-size: 180%;
+#todo-list-subtitle {
   font-family: Script;
+  font-style: italic;
+  text-align: center;
+  font-size: 150%;
 }
+
 
 #Row{
   margin-right: 65%;
@@ -52,7 +58,7 @@ mat-panel-title.mat-expansion-panel-header-title{
 
 
 [layout-gt-sm="row"] {
-  background-image: url("https://fresible.com/wp-content/uploads/2016/12/background.jpg");
+  background-image: url("https://lh3.ggpht.com/-OpdfWUferFo/UQVr_UmoI7I/AAAAAAAAD34/7Fel7mpW15w/s0/1.jpg)");
 }
 
 

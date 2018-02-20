@@ -2,17 +2,17 @@
   <div flex-gt-sm="80" flex-offset-gt-sm="10">
     <mat-card>
       <mat-card-title id="todo-list-title">Todos</mat-card-title>
+      <!--# The Angular feature-->
+      <mat-card-subtitle id="todo-list-subtitle">***Note: Todos are listed by owner!***</mat-card-subtitle>
       <mat-divider></mat-divider>
-      <mat-card-content>
+      <mat-card-content id="search-parts">
         <mat-form-field>
           <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
-        </mat-form-field>
+        </mat-form-field><br>
         <mat-form-field>
           <input matInput id="todoId" #input placeholder="Filter by ID" (input)="todoId = $event.target.value">
-        </mat-form-field>
-
+        </mat-form-field><br>
         <form>
-
           <!--# The Angular feature-->
           <label> Please select status:</label>
           <select name="dropdown" id="todoStatus" #input placeholder="Filter by status" (input)="todoStatus = $event.target.value">
@@ -20,26 +20,24 @@
             <option value="true">true</option>
             <option value="false">false</option>
           </select>
-
-        </form>
+        </form><br>
         <mat-form-field>
           <input matInput id="todoBody" #input placeholder="Filter by body" (input)="todoBody = $event.target.value">
-        </mat-form-field>
+        </mat-form-field><br>
         <mat-form-field>
           <input matInput id="todoCategory" #input placeholder="Filter by category" (input)="todoCategory = $event.target.value">
         </mat-form-field>
-        <br>***Note: Todos are listed by owner!***
-        <!--<mat-form-field>-->
-        <!--<input matInput id="userCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
-        <!--</mat-form-field>-->
 
         <mat-accordion *ngIf="todos; else todosError">
+
           <mat-expansion-panel #elem [id]="todo._id" *ngFor="let todo of this.filterTodos(todoOwner, todoId, todoStatus, todoBody, todoCategory)">
+
             <mat-expansion-panel-header>
 
               <mat-panel-title matTooltip="id: {{todo._id}}">{{todo.owner}}</mat-panel-title>
 
             </mat-expansion-panel-header>
+
             <mat-panel-description>ID: {{todo._id}}</mat-panel-description>
             <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
             <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
@@ -48,6 +46,7 @@
 
           </mat-expansion-panel>
         </mat-accordion>
+
         <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
         <ng-template #todosError>
           <mat-error>
@@ -58,7 +57,10 @@
             Please wait a bit and try again or start the server.
           </mat-error>
         </ng-template>
+
       </mat-card-content>
+
     </mat-card>
+
   </div>
 </div>
