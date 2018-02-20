@@ -11,7 +11,7 @@
           <input matInput id="todoId" #input placeholder="Filter by ID" (input)="todoId = $event.target.value">
         </mat-form-field>
         <mat-form-field>
-          <input matInput id="todoStatus" #input type="string" placeholder="Filter by status (complete & incomplete)"
+          <input matInput id="todoStatus" #input type="string" placeholder="Filter by status"
                  (input)="todoStatus = $event.target.value">
         </mat-form-field>
         <mat-form-field>
@@ -25,10 +25,10 @@
         <!--</mat-form-field>-->
 
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.category" *ngFor="let todo of this.filterTodos(todoOwner, todoId, todoStatus, todoBody,todoCategory)">
+          <mat-expansion-panel #elem [id]="todo._id" *ngFor="let todo of this.filterTodos(todoOwner, todoId)">
             <mat-expansion-panel-header>
 
-              <mat-panel-title>{{todo.owner}}</mat-panel-title>
+              <mat-panel-title matTooltip="id: {{todo._id}}">{{todo.owner}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>ID: {{todo._id}}</mat-panel-description>
